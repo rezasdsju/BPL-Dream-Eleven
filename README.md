@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# 🏏 Player Selection Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
 
-Currently, two official plugins are available:
+This project is a **player selection application** where player data is displayed in attractive cards.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Each player card contains:
 
-## React Compiler
+* **Player Name**
+* **Player Image**
+* **Batting & Bowling Style**
+* **Player Price**
+* **Choose Player** button
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+When a user chooses a player, the required amount of coins is deducted from their available balance.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Display players in card format
+* Player selection functionality
+* Coin deduction when choosing a player
+* Separate component for displaying selected players
+* Delete selected players from the selected-player list
+* Automatically return the player's price to the coin balance when a selected player is removed
+* Search functionality to find players easily
+* Load player data from an API using `async/await`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Technologies & Concepts Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Technologies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **React**
+* **JSX**
+* **Tailwind CSS**
+* **DaisyUI**
+* **React Icons**
 
-```
+### React Concepts
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+* Components
+* Props
+* React Hooks
+* State Management
+* Event Handling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### JavaScript Concepts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Async/Await
+* API Data Fetching
 
-```
+## 📂 Project Features at a Glance
+
+| Feature          | Description                                |
+| ---------------- | ------------------------------------------ |
+| Player Cards     | Displays player information in card format |
+| Player Selection | Allows users to choose players             |
+| Coin System      | Deducts coins when a player is selected    |
+| Selected Players | Displays selected players separately       |
+| Remove Player    | Removes a player from the selected list    |
+| Coin Refund      | Returns the player's price when removed    |
+| Search           | Allows users to search for players         |
+| API              | Fetches player data asynchronously         |
+
+## 🚀 Project Highlights
+
+This project demonstrates the use of **React components, props, state management, event handling, API data fetching, and asynchronous JavaScript** to build an interactive player selection application.
