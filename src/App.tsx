@@ -6,7 +6,7 @@ import type { Iplayer } from "./types/playerType"
 
 
 
-const playersPromise = async():Promise<Iplayer[]>=>{
+const playersFetch = async():Promise<Iplayer[]>=>{
   const res = await fetch('/data.json')
   const data = await res.json()
   return data
@@ -14,14 +14,15 @@ const playersPromise = async():Promise<Iplayer[]>=>{
 
 
 function App() {
-  console.log(playersPromise)
+  // console.log(playersPromise)
+  const [playersPromise] = useState(playersFetch())
   const [coin, setCoin] = useState<number>(10000)
   return (
     <>
       <Nav coin={coin}></Nav>
       <Banner></Banner>
       <Suspense fallback={<p>Loading...</p>}>
-        <Players coin={coin} setCoin={setCoin} playersPromise={playersPromise()}></Players>
+        <Players coin={coin} setCoin={setCoin} playersPromise={playersPromise}></Players>
       </Suspense>
     </>
   )
