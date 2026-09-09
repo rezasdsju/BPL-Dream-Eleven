@@ -4,7 +4,7 @@ import BannerImage from '../assets/banner-main.png'
 const Banner = () => {
     return (
         <div
-            className='flex flex-col items-center mx-auto justify-center  overflow-hidden pt-5 pb-10 space-y-3'
+            className='flex flex-col items-center  mx-2 mt-2 rounded-md justify-center  overflow-hidden pt-5 pb-10 space-y-3 '
             style={{
                 background: 'radial-gradient(circle at 4% 100%, rgba(102, 119, 255, 0.3), transparent 24%), radial-gradient(circle at 100% 0%, rgba(235, 177, 164, 0.5), transparent 25%), #131313',
             }}
