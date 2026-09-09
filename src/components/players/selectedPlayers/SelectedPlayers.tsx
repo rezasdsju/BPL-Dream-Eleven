@@ -16,7 +16,7 @@ const SelectedPlayers = ({selectedPlayers, setSelectedPlayers,coin,setCoin}:Sele
     return (
         <div>
             <h2 className={ `text-2xl mx-auto mb-5 ${selectedPlayers.length>0? ' text-black':'text-red-500'}`}>{selectedPlayers.length>0? `${selectedPlayers.length} Players has been selected`: 'No Players has been Selected '}</h2>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1">
             {
                 selectedPlayers.map((player,index)=> <SelectedPlayerCard key={index} 
                 coin={coin}
