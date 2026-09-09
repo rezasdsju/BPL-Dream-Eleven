@@ -1,29 +1,53 @@
 import { FaUserAlt } from "react-icons/fa";
 import type { Iplayer } from "../../../../types/playerType";
 import { useState } from "react";
+import { Bounce, toast } from "react-toastify";
 
 
 // import React from 'react';
 interface AvailablePlayerCardProps {
     player: Iplayer
     selectedPlayers: Iplayer[],
-    setSelectedPlayers:React.Dispatch<React.SetStateAction<Iplayer[]>>;
+    setSelectedPlayers: React.Dispatch<React.SetStateAction<Iplayer[]>>;
     coin: number,
-    setCoin:React.Dispatch<React.SetStateAction<number>>
+    setCoin: React.Dispatch<React.SetStateAction<number>>
 }
-const AvailablePlayerCard = ({ player,selectedPlayers,setSelectedPlayers,coin, setCoin }: AvailablePlayerCardProps) => {
+const AvailablePlayerCard = ({ player, selectedPlayers, setSelectedPlayers, coin, setCoin }: AvailablePlayerCardProps) => {
     const [isChossen, setIsChossen] = useState<boolean>(false)
-    const handleChoosePlayer = ()=>{
-        if (!isChossen) {
+    const handleChoosePlayer = () => {
+        const newCoin = coin - player.price
+        if (newCoin > 0) {
+            setCoin(newCoin)
             setIsChossen(true)
-            const newSelectedPlayers = [...selectedPlayers,player]
+            const newSelectedPlayers = [...selectedPlayers, player]
             setSelectedPlayers(newSelectedPlayers)
-            const newCoin = coin-player.price
-            if (newCoin>0){
-                setCoin(newCoin)
-            }
 
+            toast.success(`${player.playerName} has been purchased Successfully`, {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        } else {
+            toast.error(`Insufficient Coin to purchase`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
         }
+
+
     }
     return (
         <div className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border border-base-200 overflow-hidden">
@@ -85,7 +109,7 @@ const AvailablePlayerCard = ({ player,selectedPlayers,setSelectedPlayers,coin, s
                     </div>
 
                     <button onClick={handleChoosePlayer} className="btn btn-primary px-6 " disabled={isChossen}>
-                        {isChossen? 'Selected': 'Choose Player'}
+                        {isChossen ? 'Selected' : 'Choose Player'}
                     </button>
                 </div>
 
