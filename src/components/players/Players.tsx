@@ -35,7 +35,11 @@ const Players = ({playersPromise}:PlayersProps) => {
                 </div>
 
             </div>
-            {buttonType==='available'?<AvailablePlayers setSelectedPlayers={setSelectedPlayers} selectedPlayers={selectedPlayers} players={players}></AvailablePlayers>:<SelectedPlayers></SelectedPlayers>}
+            {buttonType==='available'?<AvailablePlayers 
+            setSelectedPlayers={setSelectedPlayers} 
+            selectedPlayers={selectedPlayers} 
+            players={players}></AvailablePlayers>:<SelectedPlayers setSelectedPlayers={setSelectedPlayers} 
+            selectedPlayers={selectedPlayers} ></SelectedPlayers>}
         </div>
     );
 };
