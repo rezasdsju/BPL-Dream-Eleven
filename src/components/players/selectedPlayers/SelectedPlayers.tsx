@@ -14,7 +14,10 @@ const SelectedPlayers = ({selectedPlayers, setSelectedPlayers}:SelectedPlayersPr
     return (
         <div className="grid grid-cols-3">
             {
-                selectedPlayers.map((player,index)=> <SelectedPlayerCard key={index} player={player} />)
+                selectedPlayers.map((player,index)=> <SelectedPlayerCard key={index} 
+                selectedPlayers={selectedPlayers}
+                setSelectedPlayers={setSelectedPlayers}
+                player={player} />)
             }
         </div>
     );

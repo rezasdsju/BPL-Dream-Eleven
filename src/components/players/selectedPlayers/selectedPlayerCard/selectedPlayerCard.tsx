@@ -4,10 +4,17 @@ import { FaUserAlt } from "react-icons/fa";
 import type { Iplayer } from "../../../../types/playerType";
 
 interface SelectedPlayerCardProps {
-    player: Iplayer
+    player: Iplayer,
+    selectedPlayers: Iplayer[],
+    setSelectedPlayers:React.Dispatch<React.SetStateAction<Iplayer[]>>;
 }
 
-const SelectedPlayerCard = ({player}:SelectedPlayerCardProps) => {
+const SelectedPlayerCard = ({player,selectedPlayers, setSelectedPlayers}:SelectedPlayerCardProps) => {
+
+    const handleDelete = ()=>{
+        const restPlayers = selectedPlayers.filter(p=>p!==player)
+        setSelectedPlayers(restPlayers)
+    }
     return (
         <div className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border border-base-200 overflow-hidden">
             <figure className="h-60 overflow-hidden">
@@ -66,6 +73,8 @@ const SelectedPlayerCard = ({player}:SelectedPlayerCardProps) => {
                             ${player.price}
                         </h2>
                     </div>
+
+                    <button onClick={handleDelete} className="btn btn-error">Delete</button>
 
 
                 </div>
