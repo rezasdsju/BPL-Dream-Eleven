@@ -6,7 +6,7 @@
   "playerType": "Wicket-Keeper Batter",
   "bowlingStyle": "Right-Arm Off Break",
   "battingStyle": "Right-Handed",
-  "price": 1200000
+  "price": 1200
 },
   {
     "playerName": "Babar Azam",
@@ -15,7 +15,7 @@
     "playerType": "Batter",
     "bowlingStyle": "Right-Arm Off Break",
     "battingStyle": "Right-Handed",
-    "price": 1500000
+    "price": 1500
   },
   {
     "playerName": "Virat Kohli",
@@ -24,7 +24,7 @@
     "playerType": "Batter",
     "bowlingStyle": "Right-Arm Medium",
     "battingStyle": "Right-Handed",
-    "price": 1800000
+    "price": 1800
   },
   {
     "playerName": "Rashid Khan",
@@ -33,7 +33,7 @@
     "playerType": "Bowler",
     "bowlingStyle": "Right-Arm Leg Break",
     "battingStyle": "Right-Handed",
-    "price": 1400000
+    "price": 1400
   },
   {
     "playerName": "Jos Buttler",
@@ -42,7 +42,7 @@
     "playerType": "Wicket-Keeper Batter",
     "bowlingStyle": "Right-Arm Medium",
     "battingStyle": "Right-Handed",
-    "price": 1600000
+    "price": 1600
   },
   {
     "playerName": "Pat Cummins",
@@ -51,7 +51,7 @@
     "playerType": "Bowler",
     "bowlingStyle": "Right-Arm Fast",
     "battingStyle": "Right-Handed",
-    "price": 1700000
+    "price": 1700
   },
   {
     "playerName": "Kane Williamson",
@@ -60,7 +60,7 @@
     "playerType": "Batter",
     "bowlingStyle": "Right-Arm Off Break",
     "battingStyle": "Right-Handed",
-    "price": 1300000
+    "price": 1300
   },
   {
     "playerName": "Andre Russell",
@@ -69,7 +69,7 @@
     "playerType": "All-Rounder",
     "bowlingStyle": "Right-Arm Fast",
     "battingStyle": "Right-Handed",
-    "price": 1550000
+    "price": 1550
   },
   {
     "playerName": "Trent Boult",
@@ -78,7 +78,7 @@
     "playerType": "Bowler",
     "bowlingStyle": "Left-Arm Fast-Medium",
     "battingStyle": "Left-Handed",
-    "price": 1250000
+    "price": 1250
   },
   {
     "playerName": "Rohit Sharma",
@@ -87,6 +87,6 @@
     "playerType": "Batter",
     "bowlingStyle": "Right-Arm Off Break",
     "battingStyle": "Right-Handed",
-    "price": 1450000
+    "price": 1450
   }
 ]
