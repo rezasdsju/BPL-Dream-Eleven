@@ -2,28 +2,39 @@
 
 // import React from 'react';
 
-import { use } from "react";
+import { use, useState } from "react";
 import type { Iplayer } from "../../types/playerType";
 
 import AvailablePlayers from "./availablePlayers/AvailablePlayers";
+import SelectedPlayers from "./availablePlayers/selectedPlayers/SelectedPlayers";
 
 interface PlayersProps {
     playersPromise: Promise<Iplayer[]>
 }
 const Players = ({playersPromise}:PlayersProps) => {
     const players =  use(playersPromise)
-    console.log(players)
+    // console.log(players)
+
+    const [buttonType, setButtonType] = useState<"available"| 'selected'>('available')
+    const handleButtonClick = ()=>{
+        if (buttonType==='available') {
+            setButtonType('selected')
+        } else {
+            setButtonType('available')
+        }
+        
+    }
     return (
         <div className="container mx-auto px-5 mt-5">
             <div className="flex justify-between gap-4 mb-2">
                 <h2 className="font-bold text-xl">Available Players:</h2>
                 <div>
-                    <button className="btn btn-success">Available</button>
-                    <button className="btn ">Selected</button>
+                    <button onClick={handleButtonClick} className={`btn rounded-r-none ${buttonType==='available'?'btn-success':''}`}>Available</button>
+                    <button onClick={handleButtonClick} className={`btn rounded-l-none ${buttonType==='selected'?'btn-success':''}`}>Selected</button>
                 </div>
 
             </div>
-            <AvailablePlayers players={players}></AvailablePlayers>
+            {buttonType==='available'?<AvailablePlayers players={players}></AvailablePlayers>:<SelectedPlayers></SelectedPlayers>}
         </div>
     );
 };
