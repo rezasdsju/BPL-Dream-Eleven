@@ -19,6 +19,7 @@ const Players = ({playersPromise,coin,setCoin}:PlayersProps) => {
 
     const [buttonType, setButtonType] = useState<"available"| 'selected'>('available')
     const [selectedPlayers, setSelectedPlayers] = useState<Iplayer[]>([])
+    const [searchedPlayers, setSearchedPlayers] = useState<Iplayer[]>(players)
     const handleButtonClick = ()=>{
         if (buttonType==='available') {
             setButtonType('selected')
@@ -27,10 +28,19 @@ const Players = ({playersPromise,coin,setCoin}:PlayersProps) => {
         }
         
     }
+
+    const handleSearchPlayer = (searchedPlayerName:string):void=>{
+        const matchedPlayers = players.filter(player=>player.playerName.toLocaleLowerCase().includes(searchedPlayerName.toLocaleLowerCase()))
+       
+        setSearchedPlayers(matchedPlayers)
+    }
+    console.log(searchedPlayers)
+    // console.log(setSearchedPlayers)
     return (
         <div className="container mx-auto px-5 mt-5">
             <div className="flex justify-between gap-4 mb-2">
                 <h2 className="font-bold text-xl">Available Players:</h2>
+                <input className="border-2 rounded-2xl px-3" type="text" onChange={(e)=>handleSearchPlayer(e.target.value)} placeholder="Search..." />
                 <div>
                     <button onClick={handleButtonClick} className={`btn rounded-r-none ${buttonType==='available'?'btn-success':''}`}>Available</button>
                     <button onClick={handleButtonClick} className={`btn rounded-l-none ${buttonType==='selected'?'btn-success':''}`}>Selected</button>
@@ -42,7 +52,7 @@ const Players = ({playersPromise,coin,setCoin}:PlayersProps) => {
             setCoin={setCoin}
             setSelectedPlayers={setSelectedPlayers} 
             selectedPlayers={selectedPlayers} 
-            players={players}></AvailablePlayers>:<SelectedPlayers setSelectedPlayers={setSelectedPlayers} 
+            players={searchedPlayers}></AvailablePlayers>:<SelectedPlayers setSelectedPlayers={setSelectedPlayers} 
             coin={coin}
             setCoin={setCoin}
             selectedPlayers={selectedPlayers} ></SelectedPlayers>}
