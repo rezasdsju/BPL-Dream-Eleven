@@ -15,7 +15,7 @@ Each player card contains:
 When a user chooses a player, the required amount of coins is deducted from their available balance.
 
 ## ✨ Features
-
+* Banner section with gradient background
 * Display players in card format
 * Player selection functionality
 * Coin deduction when choosing a player
