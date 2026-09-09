@@ -7,13 +7,16 @@ interface SelectedPlayerCardProps {
     player: Iplayer,
     selectedPlayers: Iplayer[],
     setSelectedPlayers:React.Dispatch<React.SetStateAction<Iplayer[]>>;
+    coin: number,
+    setCoin:React.Dispatch<React.SetStateAction<number>>
 }
 
-const SelectedPlayerCard = ({player,selectedPlayers, setSelectedPlayers}:SelectedPlayerCardProps) => {
+const SelectedPlayerCard = ({player,selectedPlayers, setSelectedPlayers, coin,setCoin}:SelectedPlayerCardProps) => {
 
     const handleDelete = ()=>{
         const restPlayers = selectedPlayers.filter(p=>p!==player)
         setSelectedPlayers(restPlayers)
+        setCoin(coin+player.price)
     }
     return (
         <div className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 border border-base-200 overflow-hidden">
