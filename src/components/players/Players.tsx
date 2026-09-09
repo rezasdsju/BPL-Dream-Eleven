@@ -6,7 +6,7 @@ import { use, useState } from "react";
 import type { Iplayer } from "../../types/playerType";
 
 import AvailablePlayers from "./availablePlayers/AvailablePlayers";
-import SelectedPlayers from "./availablePlayers/selectedPlayers/SelectedPlayers";
+import SelectedPlayers from "./selectedPlayers/SelectedPlayers";
 
 interface PlayersProps {
     playersPromise: Promise<Iplayer[]>
@@ -16,6 +16,7 @@ const Players = ({playersPromise}:PlayersProps) => {
     // console.log(players)
 
     const [buttonType, setButtonType] = useState<"available"| 'selected'>('available')
+    const [selectedPlayers, setSelectedPlayers] = useState<Iplayer[]>([])
     const handleButtonClick = ()=>{
         if (buttonType==='available') {
             setButtonType('selected')
@@ -34,7 +35,7 @@ const Players = ({playersPromise}:PlayersProps) => {
                 </div>
 
             </div>
-            {buttonType==='available'?<AvailablePlayers players={players}></AvailablePlayers>:<SelectedPlayers></SelectedPlayers>}
+            {buttonType==='available'?<AvailablePlayers setSelectedPlayers={setSelectedPlayers} selectedPlayers={selectedPlayers} players={players}></AvailablePlayers>:<SelectedPlayers></SelectedPlayers>}
         </div>
     );
 };
