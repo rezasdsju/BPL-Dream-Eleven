@@ -8,14 +8,20 @@ interface AvailablePlayerCardProps {
     player: Iplayer
     selectedPlayers: Iplayer[],
     setSelectedPlayers:React.Dispatch<React.SetStateAction<Iplayer[]>>;
+    coin: number,
+    setCoin:React.Dispatch<React.SetStateAction<number>>
 }
-const AvailablePlayerCard = ({ player,selectedPlayers,setSelectedPlayers }: AvailablePlayerCardProps) => {
+const AvailablePlayerCard = ({ player,selectedPlayers,setSelectedPlayers,coin, setCoin }: AvailablePlayerCardProps) => {
     const [isChossen, setIsChossen] = useState<boolean>(false)
     const handleChoosePlayer = ()=>{
         if (!isChossen) {
             setIsChossen(true)
             const newSelectedPlayers = [...selectedPlayers,player]
             setSelectedPlayers(newSelectedPlayers)
+            const newCoin = coin-player.price
+            if (newCoin>0){
+                setCoin(newCoin)
+            }
 
         }
     }

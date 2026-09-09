@@ -9,9 +9,11 @@ import AvailablePlayers from "./availablePlayers/AvailablePlayers";
 import SelectedPlayers from "./selectedPlayers/SelectedPlayers";
 
 interface PlayersProps {
-    playersPromise: Promise<Iplayer[]>
+    playersPromise: Promise<Iplayer[]>,
+    coin: number
+    setCoin:React.Dispatch<React.SetStateAction<number>>
 }
-const Players = ({playersPromise}:PlayersProps) => {
+const Players = ({playersPromise,coin,setCoin}:PlayersProps) => {
     const players =  use(playersPromise)
     // console.log(players)
 
@@ -36,6 +38,8 @@ const Players = ({playersPromise}:PlayersProps) => {
 
             </div>
             {buttonType==='available'?<AvailablePlayers 
+            coin={coin}
+            setCoin={setCoin}
             setSelectedPlayers={setSelectedPlayers} 
             selectedPlayers={selectedPlayers} 
             players={players}></AvailablePlayers>:<SelectedPlayers setSelectedPlayers={setSelectedPlayers} 

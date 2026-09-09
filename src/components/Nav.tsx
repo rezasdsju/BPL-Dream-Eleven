@@ -1,8 +1,12 @@
 
 
+import { FaDollarSign } from 'react-icons/fa';
 import Logo from '../assets/logo.png'
 
-const Nav = () => {
+interface NavProps {
+    coin: number
+}
+const Nav = ({coin}:NavProps) => {
     return (
         // <nav className=" bg-[#efebe3]">
         <nav>
@@ -15,6 +19,7 @@ const Nav = () => {
                     <li>Players</li>
                     <li>Schedule</li>
                 </ul>
+                <p className='flex items-center'><FaDollarSign />{coin}</p>
             </div>
         </nav>
     );
