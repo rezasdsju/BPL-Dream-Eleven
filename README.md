@@ -4,7 +4,7 @@ A React-based player selection application where users can browse available cric
 
 ## 🔗 Live Project
 
-**Live Demo:** https://bpl-dream-eleven-asgwot12s-reza-babd.vercel.app
+**Live Demo:** https://bpl-dream-eleven-eight.vercel.app/
 
 ---
 
